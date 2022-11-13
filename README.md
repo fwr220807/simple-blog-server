@@ -1,6 +1,7 @@
 # simple-blog-server
 基于 Nestjs 构建的 simple-blog 博客网站服务器，实现用户的注册登陆，栏目、文章、评论的增删改查，敏感操作的用户校验，日志记录等功能，数据库使用 mysql，搭配 simple-blog 的[前端系统](https://github.com/fwr220807/simple-blog-frontend)一起使用。
-前端可结合[接口文档](https://www.apifox.cn/apidoc/shared-c221a36e-8de4-403d-b346-ff7c928255f9)进行开发。
+
+前端开发请参考[接口文档](https://www.apifox.cn/apidoc/shared-c221a36e-8de4-403d-b346-ff7c928255f9)。
 
 ## 技术栈
 
