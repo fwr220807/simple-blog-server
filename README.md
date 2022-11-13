@@ -3,7 +3,7 @@
 
 ## 技术栈
 
-Nodejs + Nestjs + mysql + prisma
+Nodejs + Nestjs + TS + mysql + prisma
 
 ## 特性
 
