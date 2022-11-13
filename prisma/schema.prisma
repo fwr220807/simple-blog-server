@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model blog {
+  id        Int @id @default(autoincrement()) @db.UnsignedInt
+  viewCount Int @default(0)
+}
+
+model user {
+  id       Int       @id @default(autoincrement()) @db.UnsignedInt
+  email    String    @unique
+  name     String
+  password String
+  // 头像
+  avatar   String
+  // 角色
+  role     String
+  website  String?
+  // 与 comment 建立一对多关系，不代表实际键值
+  comments comment[]
+}
+
+model visitor {
+  id       Int       @id @default(autoincrement()) @db.UnsignedInt
+  email    String    @unique
+  name     String
+  // 头像
+  avatar   String
+  website  String?
+  // 与 comment 建立一对多关系，不代表实际键值
+  comments comment[]
+}
+
+model category {
+  id        Int       @id @default(autoincrement()) @db.UnsignedInt
+  title     String    @unique
+  // 路由名称
+  routeName String    @unique
+  describe  String
+  // 一对多，标签
+  articles  article[]
+}
+
+model article {
+  id           Int       @id @default(autoincrement()) @db.UnsignedInt
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  //  路由名称
+  routeName    String    @unique
+  // 标题
+  title        String    @unique
+  // 文本内容
+  content      String    @db.Text
+  // 栏目 onDelete: Cascade 关联删除
+  category     category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId   Int       @db.UnsignedInt
+  // 文章访问量
+  viewCount    Int       @default(0)
+  // 文章评论量
+  commentCount Int       @default(0)
+  // 一对多关联 comment
+  comments     comment[]
+}
+
+model comment {
+  id        Int      @id @default(autoincrement()) @db.UnsignedInt
+  createdAt DateTime @default(now())
+  // 所回复的 id，根节点为 0
+  parentId  Int
+  // 存储层级关系，比如 1楼是0.1，回复一楼是 0.1.1
+  level     String
+  // 回复的内容
+  content   String   @db.Text
+  // 审核
+  audit     Boolean  @default(false)
+  // 是否展示
+  show      Boolean  @default(false)
+  // 关联article，主要用于删除文章时，删除对应的评论
+  article   article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  articleId Int      @db.UnsignedInt
+  // 关联 user，主要用于获取 user 的相关信息
+  user      user?    @relation(fields: [userId], references: [id])
+  userId    Int?     @db.UnsignedInt
+  // 关联 visitor，主要用于获取 visitor 的相关信息
+  visitor   visitor? @relation(fields: [visitorId], references: [id])
+  visitorId Int?     @db.UnsignedInt
+}
