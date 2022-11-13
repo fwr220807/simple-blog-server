@@ -46,7 +46,7 @@ COMMENT_LIMIT="4"
 
 初始化 prisma，并 seed 数据；
 
-```bash
+```shell
 npx prisma migrate dev
 npx prisma migrate reset // 此命令会删除指定数据库之前的所有数据，并重新 seed 数据
 ```
