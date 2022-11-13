@@ -14,8 +14,8 @@ Nodejs + Nestjs + mysql + prisma
 
 ## 准备
 
-1. nodejs 环境，指路；
-2. 安装 mysql，指路；
+1. nodejs 环境，[指路](https://nodejs.org/en/)；
+2. 安装 mysql，[指路](https://www.mysql.com/)。
 
 ## 构建
 
