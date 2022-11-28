@@ -23,7 +23,10 @@ let TransformInterceptor = class TransformInterceptor {
         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`;
             log4js_1.Logger.info(logFormat);
             log4js_1.Logger.access(logFormat);
-            return (data === null || data === void 0 ? void 0 : data.meta) ? data : { data };
+            if (data === null || data === void 0 ? void 0 : data.meta) {
+                data.code = 200;
+            }
+            return (data === null || data === void 0 ? void 0 : data.meta) ? data : { code: 200, data };
         }));
     }
 };

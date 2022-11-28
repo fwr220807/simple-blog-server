@@ -15,6 +15,11 @@ const is_not_exists_rule_1 = require("../../common/rules/is-not-exists.rule");
 class RegisterDto {
 }
 __decorate([
+    (0, class_validator_1.IsNotEmpty)({ message: '用户名不能为空' }),
+    (0, is_not_exists_rule_1.IsNotExitsRule)('user', { message: '用户名已经注册' }),
+    __metadata("design:type", String)
+], RegisterDto.prototype, "username", void 0);
+__decorate([
     (0, class_validator_1.IsNotEmpty)({ message: '邮件地址不能为空' }),
     (0, is_not_exists_rule_1.IsNotExitsRule)('user', { message: '邮件地址已经注册' }),
     __metadata("design:type", String)

@@ -5,6 +5,9 @@ import { registerDecorator, ValidationArguments, ValidationOptions } from 'class
 // table 为传入的参数，为需要查询的数据库表名
 export function IsExitsRule(table: string, validationOptions?: ValidationOptions) {
   return function (object: Record<string, any>, propertyName: string) {
+
+
+
     registerDecorator({
       name: 'IsExitsRule',
       target: object.constructor,
@@ -13,6 +16,8 @@ export function IsExitsRule(table: string, validationOptions?: ValidationOptions
       options: validationOptions,
       validator: {
         async validate(value: string, args: ValidationArguments) {
+          console.log(object);
+          console.log(propertyName);
           const prisma = new PrismaClient()
           const res = await prisma[table].findUnique({
             where: {

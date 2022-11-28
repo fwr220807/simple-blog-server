@@ -22,6 +22,7 @@ let AuthService = class AuthService {
     async register(role, registerDto) {
         const user = await this.prisma.user.create({
             data: {
+                username: registerDto.username,
                 email: registerDto.email,
                 name: registerDto.name,
                 password: await (0, argon2_1.hash)(registerDto.password),
@@ -31,10 +32,10 @@ let AuthService = class AuthService {
         });
         return this.token(user);
     }
-    async token({ id, email }) {
+    async token({ id, username }) {
         return {
             token: await this.jwt.signAsync({
-                email,
+                username,
                 sub: id,
             }),
         };
@@ -42,7 +43,7 @@ let AuthService = class AuthService {
     async login(loginDto) {
         const user = await this.prisma.user.findUnique({
             where: {
-                email: loginDto.email,
+                username: loginDto.username,
             },
         });
         if (!(await (0, argon2_1.verify)(user.password, loginDto.password))) {

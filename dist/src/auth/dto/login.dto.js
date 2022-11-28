@@ -14,10 +14,10 @@ const is_exists_rule_1 = require("../../common/rules/is-exists.rule");
 class LoginDto {
 }
 __decorate([
-    (0, class_validator_1.IsNotEmpty)({ message: '邮件地址不能为空' }),
-    (0, is_exists_rule_1.IsExitsRule)('user', { message: '邮件地址账号不存在' }),
+    (0, class_validator_1.IsNotEmpty)({ message: '用户名不能为空' }),
+    (0, is_exists_rule_1.IsExitsRule)('user', { message: '用户名不存在' }),
     __metadata("design:type", String)
-], LoginDto.prototype, "email", void 0);
+], LoginDto.prototype, "username", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: '密码不能为空' }),
     __metadata("design:type", String)

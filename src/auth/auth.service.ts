@@ -8,11 +8,12 @@ import { Role } from './enum'
 
 @Injectable()
 export class AuthService {
-  constructor(private prisma: PrismaService, private jwt: JwtService) {}
+  constructor(private prisma: PrismaService, private jwt: JwtService) { }
 
   async register(role: Role, registerDto: RegisterDto) {
     const user = await this.prisma.user.create({
       data: {
+        username: registerDto.username,
         email: registerDto.email,
         name: registerDto.name,
         // 利用 argon2 包生成密钥，不直接存储密码
@@ -27,10 +28,10 @@ export class AuthService {
   }
 
   // 利用 name 和 id 值生成 token，验证身份
-  private async token({ id, email }) {
+  private async token({ id, username }) {
     return {
       token: await this.jwt.signAsync({
-        email,
+        username,
         sub: id,
       }),
     }
@@ -39,7 +40,7 @@ export class AuthService {
   async login(loginDto: LoginDto) {
     const user = await this.prisma.user.findUnique({
       where: {
-        email: loginDto.email,
+        username: loginDto.username,
       },
     })
 

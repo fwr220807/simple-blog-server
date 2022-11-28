@@ -13,6 +13,8 @@ function IsExitsRule(table, validationOptions) {
             options: validationOptions,
             validator: {
                 async validate(value, args) {
+                    console.log(object);
+                    console.log(propertyName);
                     const prisma = new client_1.PrismaClient();
                     const res = await prisma[table].findUnique({
                         where: {

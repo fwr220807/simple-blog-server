@@ -4,10 +4,12 @@ const client_1 = require("@prisma/client");
 const argon2_1 = require("argon2");
 const mockjs_1 = require("mockjs");
 const lodash_1 = require("lodash");
+const fs_1 = require("fs");
 const prisma = new client_1.PrismaClient();
 async function run() {
     await prisma.user.create({
         data: {
+            username: 'admin',
             email: 'admin@admin.com',
             name: 'admin',
             password: await (0, argon2_1.hash)('admin888'),
@@ -59,6 +61,27 @@ async function run() {
             },
         });
     }
+    await prisma.article.create({
+        data: {
+            title: 'Vue3 深色主题的切换实现思路',
+            content: (0, fs_1.readFileSync)(__dirname + '/深色主题的切换实现思路.md').toString(),
+            categoryId: (0, lodash_1.random)(1, 5),
+            routeName: mockjs_1.Random.title(1, 1),
+            viewCount: 0,
+            commentCount: 0,
+        },
+    });
+    await prisma.comment.create({
+        data: {
+            content: '',
+            audit: true,
+            articleId: 31,
+            userId: 1,
+            parentId: 0,
+            level: '0',
+            show: false,
+        },
+    });
 }
 run();
 //# sourceMappingURL=seed.js.map

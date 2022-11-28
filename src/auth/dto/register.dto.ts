@@ -5,6 +5,11 @@ import { IsConfirmRule } from 'src/common/rules/is-confirm.rule'
 import { IsNotExitsRule } from 'src/common/rules/is-not-exists.rule'
 
 export default class RegisterDto {
+  @IsNotEmpty({ message: '用户名不能为空' })
+  // 用装饰器自定义规则
+  // * 由于 visitor 也放user 表了，还需要判断 visitor 的情况
+  @IsNotExitsRule('user', { message: '用户名已经注册' })
+  username: string
   @IsNotEmpty({ message: '邮件地址不能为空' })
   // 用装饰器自定义规则
   // * 由于 visitor 也放user 表了，还需要判断 visitor 的情况

@@ -17,6 +17,7 @@ model blog {
 
 model user {
   id       Int       @id @default(autoincrement()) @db.UnsignedInt
+  username String    @unique
   email    String    @unique
   name     String
   password String

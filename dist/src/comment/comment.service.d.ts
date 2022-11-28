@@ -14,9 +14,11 @@ export declare class CommentService {
             total_page: number;
         };
         data: {
+            id: number;
             createdAt: Date;
             content: string;
-            id: number;
+            parentId: number;
+            level: string;
             user: {
                 name: string;
                 avatar: string;
@@ -27,8 +29,6 @@ export declare class CommentService {
                 avatar: string;
                 website: string;
             };
-            parentId: number;
-            level: string;
         }[];
         commentRootId: number;
     }>;
