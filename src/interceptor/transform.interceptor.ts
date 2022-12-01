@@ -27,6 +27,8 @@ export class TransformInterceptor implements NestInterceptor {
         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`;
         Logger.info(logFormat);
         Logger.access(logFormat);
+
+        this.removePassword(data)
         // 如果数据包含 meta 元信息，就不用包含直接返回（自己需要注意有meta元信息是要用 data 包裹），否则需要 data 包裹再返回。
         if (data?.meta) {
           data.code = 200;
@@ -34,5 +36,15 @@ export class TransformInterceptor implements NestInterceptor {
         return data?.meta ? data : { code: 200, data };
       })
     );
+  }
+  // 递归删除含有 password 的值
+  private removePassword(data: Object) {
+    for (const key in data) {
+      if (key === 'password') {
+        delete data[key]
+      } else if (!data[key] && typeof data[key] === 'object') {
+        this.removePassword(data[key])
+      }
+    }
   }
 }

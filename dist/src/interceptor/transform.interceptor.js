@@ -23,11 +23,22 @@ let TransformInterceptor = class TransformInterceptor {
         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`;
             log4js_1.Logger.info(logFormat);
             log4js_1.Logger.access(logFormat);
+            this.removePassword(data);
             if (data === null || data === void 0 ? void 0 : data.meta) {
                 data.code = 200;
             }
             return (data === null || data === void 0 ? void 0 : data.meta) ? data : { code: 200, data };
         }));
+    }
+    removePassword(data) {
+        for (const key in data) {
+            if (key === 'password') {
+                delete data[key];
+            }
+            else if (!data[key] && typeof data[key] === 'object') {
+                this.removePassword(data[key]);
+            }
+        }
     }
 };
 TransformInterceptor = __decorate([

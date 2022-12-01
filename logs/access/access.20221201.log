@@ -1,0 +1,220 @@
+[2022-12-01T17:13:51.239] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/login
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/login"}
+    Query: {}
+    Body: {"username":"admin","password":"admin888"} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:13:51.396] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/login
+        Method: POST
+        IP: ::1
+        User: undefined
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:13:55.096] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:13:55.126] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:14:44.559] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:14:44.656] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:16:38.692] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:16:38.765] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:17:39.891] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:17:39.952] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:18:28.820] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:18:28.876] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:27:04.140] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:27:04.188] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:36:36.865] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:36:36.926] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:46:40.058] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:46:40.120] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:47:14.086] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:47:14.144] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2022-12-01T17:50:56.361] [INFO] http - logger.middleware.ts(line: 53, column: 12): 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Request original url: /api/user/getUserInfo
+    Method: POST
+    IP: ::1
+    Status code: 200
+    Params: {"0":"api/user/getUserInfo"}
+    Query: {}
+    Body: {} 
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[2022-12-01T17:50:56.446] [INFO] http - transform.interceptor.ts(line: 29, column: 16): 
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Request original url: /api/user/getUserInfo
+        Method: POST
+        IP: ::1
+        User: {"id":1,"username":"admin","email":"admin@admin.com","name":"admin","password":"$argon2id$v=19$m=4096,t=3,p=1$BacNbzHKh9SuQV0SPii7zA$80tMpVXWh61wB8NO2QZaQeySYFGx93Aohs/sWB5qrTQ","avatar":"http://localhost:3000/uploads/1663473559783-5332236027.png","role":"admin","website":null}
+        Response data:
+ undefined
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

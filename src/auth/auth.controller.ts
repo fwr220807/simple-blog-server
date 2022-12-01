@@ -7,7 +7,7 @@ import { Role } from './enum'
 
 @Controller()
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   // 正常注册，只能注册 user 角色
   @Post('register')

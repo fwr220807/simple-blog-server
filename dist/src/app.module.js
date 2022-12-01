@@ -15,6 +15,7 @@ const category_module_1 = require("./category/category.module");
 const upload_module_1 = require("./upload/upload.module");
 const comment_module_1 = require("./comment/comment.module");
 const blogView_middleware_1 = require("./middleware/blogView.middleware");
+const user_module_1 = require("./user/user.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(blogView_middleware_1.BlogViewMiddleware).forRoutes('*');
@@ -22,7 +23,7 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, prisma_module_1.PrismaModule, article_module_1.ArticleModule, category_module_1.CategoryModule, upload_module_1.UploadModule, comment_module_1.CommentModule],
+        imports: [auth_module_1.AuthModule, prisma_module_1.PrismaModule, article_module_1.ArticleModule, category_module_1.CategoryModule, upload_module_1.UploadModule, comment_module_1.CommentModule, user_module_1.UserModule],
         controllers: [],
         providers: [],
     })
