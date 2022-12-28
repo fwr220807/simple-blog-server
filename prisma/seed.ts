@@ -21,6 +21,7 @@ async function run() {
   await prisma.blog.create({
     data: {
       viewCount: 0,
+      website: 'http://localhost:5001'
     },
   })
 

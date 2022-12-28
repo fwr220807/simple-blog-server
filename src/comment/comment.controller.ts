@@ -9,7 +9,7 @@ import { CommentList } from './entities/commentList.entity'
 // 序列化，处理出参数据，配合 entity 使用
 @UseInterceptors(ClassSerializerInterceptor)
 export class CommentController {
-  constructor(private readonly commentService: CommentService) {}
+  constructor(private readonly commentService: CommentService) { }
 
   // 发表一个评论
   @Post(':routeName')
@@ -25,4 +25,6 @@ export class CommentController {
     const commentList = await this.commentService.findOne(routeName, args)
     return new CommentList(commentList)
   }
+
+  // 获取所有文章评论
 }

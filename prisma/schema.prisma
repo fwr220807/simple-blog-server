@@ -11,8 +11,9 @@ datasource db {
 }
 
 model blog {
-  id        Int @id @default(autoincrement()) @db.UnsignedInt
-  viewCount Int @default(0)
+  id        Int     @id @default(autoincrement()) @db.UnsignedInt
+  viewCount Int     @default(0)
+  website   String?
 }
 
 model user {
@@ -81,9 +82,9 @@ model comment {
   level     String
   // 回复的内容
   content   String   @db.Text
-  // 审核
+  // 审核， 未审核 = 未读
   audit     Boolean  @default(false)
-  // 是否展示
+  // 是否展示，审核+不展示 = 丢进垃圾桶里，审核+展示 = 已读
   show      Boolean  @default(false)
   // 关联article，主要用于删除文章时，删除对应的评论
   article   article  @relation(fields: [articleId], references: [id], onDelete: Cascade)

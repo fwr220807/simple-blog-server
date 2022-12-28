@@ -17,12 +17,12 @@ import { IpAddress } from './decorators/ipAddress.decorator'
 import { CreateArticleDto } from './dto/create-article.dto'
 import { UpdateArticleDto } from './dto/update-article.dto'
 import { Article } from './entities/article.entity'
-import { ArticleList } from './entities/articleList.entity'
+import { ArticlesList } from './entities/articleList.entity'
 
 @Controller('article')
 @UseInterceptors(ClassSerializerInterceptor)
 export class ArticleController {
-  constructor(private readonly articleService: ArticleService) {}
+  constructor(private readonly articleService: ArticleService) { }
 
   @Post()
   @Auth(Role.ADMIN)
@@ -30,18 +30,31 @@ export class ArticleController {
     return this.articleService.create(createArticleDto)
   }
 
-  @Get()
+  // 后台管理系统用接口 api
+  @Post('all')
+  @Auth(Role.ADMIN)
+  // 返回所有文章
   // 传递 query 参数
-  async findAll(@Query() args = {}) {
-    const articleList = await this.articleService.findAll(args)
-    return new ArticleList(articleList)
+  async findAllArticles(@Query() orderBy = {}) {
+    const articlesList = await this.articleService.findAllArticles(orderBy)
+    return new ArticlesList(articlesList)
   }
-  // 获取
+
+  @Get()
+  // 返回当前页数的文章
+  // 传递 query 参数
+  async findArticles(@Query() args = {}) {
+    const articlesList = await this.articleService.findArticles(args)
+    return new ArticlesList(articlesList)
+  }
+
+
+
   @Get('category')
   // 传递 query 参数
   async findAllCategory(@Query() args = {}) {
-    const articleList = await this.articleService.findAllCategory(args)
-    return new ArticleList(articleList)
+    const articlesList = await this.articleService.findAllCategory(args)
+    return new ArticlesList(articlesList)
   }
 
   @Get(':routeName')
@@ -50,15 +63,17 @@ export class ArticleController {
     return new Article(article)
   }
 
+  // 后台管理系统用接口 api
   @Patch(':routeName')
   @Auth(Role.ADMIN)
   update(@Param('routeName') routeName: string, @Body() updateArticleDto: UpdateArticleDto) {
     return this.articleService.update(routeName, updateArticleDto)
   }
 
+  // 后台管理系统用接口 api
   @Delete(':routeName')
   @Auth(Role.ADMIN)
-  remove(@Param(':routeName') routeName: string) {
+  remove(@Param('routeName') routeName: string) {
     return this.articleService.remove(routeName)
   }
 }

@@ -1,7 +1,7 @@
 import { Transform } from 'class-transformer'
 import * as dayjs from 'dayjs'
 
-export class ArticleList {
+export class ArticlesList {
   meta: Object
   @Transform(({ value }) =>
     value.map((article) => {
@@ -12,7 +12,7 @@ export class ArticleList {
   )
   data: Object
 
-  constructor(options: Partial<ArticleList>) {
+  constructor(options: Partial<ArticlesList>) {
     Object.assign(this, options)
   }
 }

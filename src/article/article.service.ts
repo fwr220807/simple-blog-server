@@ -7,7 +7,7 @@ import { UpdateArticleDto } from './dto/update-article.dto'
 @Injectable()
 export class ArticleService {
   private record = new Set()
-  constructor(private prisma: PrismaService, private config: ConfigService) {}
+  constructor(private prisma: PrismaService, private config: ConfigService) { }
 
   // 创建文章
   async create(createArticleDto: CreateArticleDto) {
@@ -35,8 +35,8 @@ export class ArticleService {
     return article
   }
 
-  // 查询首页文章，需要对内容修剪返回给前端
-  async findAll(args: Record<string, any>) {
+  // 返回当前页文章列表，需要对内容修剪返回给前端
+  async findArticles(args: Record<string, any>) {
     // 从 .env 取一页文章数，row 为 string 需转换成 int
     const row = +this.config.get('ARTICLE_PAGE_ROW')
     // 获取 query 参数的 page
@@ -78,6 +78,28 @@ export class ArticleService {
       data: articles,
     }
   }
+
+  // 返回所有文章
+  async findAllArticles(orderBy: Record<string, any>) {
+    const articles = await this.prisma.article.findMany({
+      orderBy,
+      include: {
+        category: true
+      },
+    })
+
+    // 将返回的内容裁剪成100个字符
+    articles.forEach((item) => {
+      item.content = item.content.slice(0, 75) + '...'
+    })
+
+    return {
+      // 用于前端展示
+      meta: {},
+      data: articles,
+    }
+  }
+
   // 查询栏目文章
   async findAllCategory(args: Record<string, any>) {
     // 从 .env 取一页文章数，row 为 string 需转换成 int
@@ -173,9 +195,11 @@ export class ArticleService {
   }
   // 删除文章
   async remove(routeName: string) {
+    console.log(routeName)
+
     return await this.prisma.article.delete({
       where: {
-        routeName,
+        routeName: routeName,
       },
     })
   }

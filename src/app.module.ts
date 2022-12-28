@@ -7,9 +7,10 @@ import { UploadModule } from './upload/upload.module'
 import { CommentModule } from './comment/comment.module'
 import { BlogViewMiddleware } from './middleware/blogView.middleware'
 import { UserModule } from './user/user.module';
+import { BlogModule } from './blog/blog.module';
 
 @Module({
-  imports: [AuthModule, PrismaModule, ArticleModule, CategoryModule, UploadModule, CommentModule, UserModule],
+  imports: [AuthModule, PrismaModule, ArticleModule, CategoryModule, UploadModule, CommentModule, UserModule, BlogModule],
   controllers: [],
   providers: [],
 })
