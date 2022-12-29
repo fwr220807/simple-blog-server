@@ -220,8 +220,6 @@ export class CommentService {
     comments.forEach(async (comment) => {
       // 匹配主评论的正则表达式
       const patternMajorComment = /^0.[0-9]+$/
-      // 初始化 parentComment 属性为空对象
-      comment['parentComment'] = {}
       // 子评论
       if (!patternMajorComment.test(comment.level)) {
         // 获取父级评论相关信息

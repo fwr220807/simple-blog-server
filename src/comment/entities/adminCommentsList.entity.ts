@@ -18,9 +18,12 @@ export class AdminCommentsList {
             comment.people = comment.user || comment.visitor
             delete comment.user
             delete comment.visitor
-            // 如果存在父级评论信息，则将该信息的时间处理
-            if (JSON.stringify(comment.parentComment) !== '{}') {
+            // 如果存在父级评论信息，则将该信息的时间处理和 people
+            if (comment.parentComment) {
                 comment.parentComment.createdAt = dayjs(comment.parentComment.createdAt).format('YY.MM.DD')
+                comment.parentComment.people = comment.parentComment.user || comment.parentComment.visitor
+                delete comment.parentComment.user
+                delete comment.parentComment.visitor
             }
 
             data.push(comment)
