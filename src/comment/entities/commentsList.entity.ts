@@ -1,8 +1,15 @@
+/*
+* @Description: 用于前台网站的序列化，生成层级结构的序列化，处理日期、和生成 people 属性，，倒序输出
+* @Author: Wren Fan
+* @Date: 2022-12-29 16:29:32
+* @LastEditors: Wren Fan
+* @LastEditTime: 2022-12-29 16:29:32
+**/
 // 序列化和把 data 变成层级关系
 import { Transform } from 'class-transformer'
 import * as dayjs from 'dayjs'
 
-export class CommentList {
+export class CommentsList {
   @Transform(({ value: comments }) => {
     const data = []
     for (let i = 0; i < comments.length; i++) {
@@ -25,11 +32,12 @@ export class CommentList {
       }
     }
 
+
     return data.filter((item) => Boolean(item)).reverse()
   })
   data: Object
 
-  constructor(options: Partial<CommentList>) {
+  constructor(options: Partial<CommentsList>) {
     Object.assign(this, options)
   }
 }

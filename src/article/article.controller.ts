@@ -1,5 +1,6 @@
 import { Auth } from '@/auth/decorators/auth.decorator'
 import { Role } from '@/auth/enum'
+import { IpAddress } from '@/common/decorators/ipAddress.decorator'
 import {
   Controller,
   Get,
@@ -13,7 +14,6 @@ import {
   ClassSerializerInterceptor,
 } from '@nestjs/common'
 import { ArticleService } from './article.service'
-import { IpAddress } from './decorators/ipAddress.decorator'
 import { CreateArticleDto } from './dto/create-article.dto'
 import { UpdateArticleDto } from './dto/update-article.dto'
 import { Article } from './entities/article.entity'
@@ -47,8 +47,6 @@ export class ArticleController {
     const articlesList = await this.articleService.findArticles(args)
     return new ArticlesList(articlesList)
   }
-
-
 
   @Get('category')
   // 传递 query 参数

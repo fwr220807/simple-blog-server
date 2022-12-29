@@ -1,14 +1,15 @@
 import { PrismaService } from '@/prisma/prisma.service'
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
+import { Comment } from './constant/enum'
 import { CreateVisitorCommentDto } from './dto/create-visitor-comment.dto'
 const md5 = require('md5')
 
 @Injectable()
 export class CommentService {
-  constructor(private prisma: PrismaService, private config: ConfigService) {}
-
-  async create(routeName: string, createVisitorCommentDto: CreateVisitorCommentDto) {
+  constructor(private prisma: PrismaService, private config: ConfigService) { }
+  // 创建评论
+  async create(routeName: string, createVisitorCommentDto: CreateVisitorCommentDto, clientIp: string) {
     // 获取当前子评论所要回复的父评论
     let commentParent = await this.prisma.comment.findUnique({
       where: {
@@ -91,6 +92,7 @@ export class CommentService {
         userId: userId,
         visitorId: visitorId,
         level: level,
+        ipAddress: clientIp
       },
     })
   }
@@ -148,7 +150,7 @@ export class CommentService {
           },
         },
       })) || []
-
+    // 计算主评论总数 total
     let total = comments.reduce((count, current) => (current.parentId === commentRoot.id ? (count += 1) : count), 0)
 
     return {
@@ -165,6 +167,94 @@ export class CommentService {
       },
       data: comments,
       commentRootId: commentRoot.id,
+    }
+  }
+
+  async findComments(commentType: Comment) {
+    // 根据评论的类型生成对应的过滤参数
+    const whereArgs = commentType === Comment.Unread ? { audit: false } :
+      commentType === Comment.Read ? { audit: true, show: true } :
+        { audit: true, show: false }
+
+    const comments = (await this.prisma.comment.findMany({
+      where: {
+        // level = '0' 是所有文章的根评论节点，不需要返回给前端
+        level: {
+          not: '0'
+        },
+        ...whereArgs
+      },
+      select: {
+        id: true,
+        createdAt: true,
+        level: true,
+        parentId: true,
+        content: true,
+        ipAddress: true,
+        article: {
+          select: {
+            title: true,
+            routeName: true
+          }
+        },
+        user: {
+          select: {
+            name: true,
+            email: true,
+            avatar: true,
+          },
+        },
+        visitor: {
+          select: {
+            name: true,
+            email: true,
+            avatar: true,
+          },
+        },
+      },
+    })) || []
+
+
+    // 处理评论，如果是次评论，则附带上父评论的信息，如果是主评论则不需要处理
+    const newComments = []
+    comments.forEach(async (comment) => {
+      // 匹配主评论的正则表达式
+      const patternMajorComment = /^0.[0-9]+$/
+      // 初始化 parentComment 属性为空对象
+      comment['parentComment'] = {}
+      // 子评论
+      if (!patternMajorComment.test(comment.level)) {
+        // 获取父级评论相关信息
+        const parentComment = await this.prisma.comment.findUnique({
+          where: {
+            id: comment.id
+          },
+          select: {
+            id: true,
+            createdAt: true,
+            content: true,
+            user: {
+              select: {
+                name: true,
+              },
+            },
+            visitor: {
+              select: {
+                name: true,
+              },
+            },
+          }
+        })
+
+        comment['parentComment'] = parentComment
+      }
+      newComments.push(comment)
+    })
+
+
+    return {
+      meta: {},
+      data: newComments
     }
   }
 }

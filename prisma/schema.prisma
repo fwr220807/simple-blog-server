@@ -86,6 +86,8 @@ model comment {
   audit     Boolean  @default(false)
   // 是否展示，审核+不展示 = 丢进垃圾桶里，审核+展示 = 已读
   show      Boolean  @default(false)
+  // 发表评论的 ip 地址
+  ipAddress String?
   // 关联article，主要用于删除文章时，删除对应的评论
   article   article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
   articleId Int      @db.UnsignedInt
